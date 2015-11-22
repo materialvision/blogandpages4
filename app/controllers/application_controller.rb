@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
 
   def tagcloud
     #find all pages for tag cloud
-    @tagpages=Page.find_all_by_clouded(true,:order => "title ASC")
+    #@tagpages=Page.find_all_by_clouded(true,:order => "title ASC")
+    #@tagpages=Page.all_by_clouded(true,:order => "title ASC")
+    @tagpages=Page.all
   end
 end
