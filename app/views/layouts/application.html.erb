@@ -1,14 +1,80 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
-<head>
-  <title>Blogandpages4</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Eyes on your instruments</title>
+		<%= javascript_include_tag :defaults, 'wysihat_engine_pack' %>
+		<%= stylesheet_link_tag 'facebox', 'wysihat','application' %>
+    <%= yield(:head) %>
+		<%= auto_discovery_link_tag(:rss, {:controller => 'rss'}) %>
+		
+		<script type="text/javascript">
 
-<%= yield %>
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-4586950-3']);
+		  _gaq.push(['_trackPageview']);
 
-</body>
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+		</script>
+  </head>
+  <body>
+    <div id="container">    
+	
+			<div id="content" class="clear">
+
+			<div id="thinheader" class="">
+			  <h1 class="logo"><a href="/" title="news"><span>news</span></a></h1>
+				
+			  <div id="session_nav">
+
+					<ul>
+			  <li><%= link_to "News", root_path %></li><li><span class="separator">|
+				</span><%= link_to "Works", "/works" %></li><li><span class="separator">|</span>
+				<%= link_to "Bio", "/bio" %></li><li><span class="separator">|</span>
+				</span><%= link_to "RSS", "/rss" %></li>
+				
+						<% if logged_in? %>
+							<li><span class="separator">|</span><%= link_to "Pages", pages_path %><span class="separator">|</span>
+							<%= link_to "New user", signup_path %><span class="separator">|</span>
+							<%= link_to "New page", new_page_path %><span class="separator">|</span>
+							<%= link_to "New Post", new_post_path %><span class="separator">|</span>
+							<%= link_to "Update_cloud", calculate_importance_path %><span class="separator">|</span>
+			        <%= link_to "Log out", logout_path %></li>
+			      <% end %>
+
+			</ul>
+			  </div> <!-- END TOPNAV -->
+			
+			</div> <!-- END HEADER -->
+			<div id="caption">by espen sommer eide</div>
+
+			<div class="headerpadding">
+		    <%- flash.each do |name, msg| -%>
+	        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+	      <%- end -%>
+			</div>
+
+			<%= render :partial => 'layouts/pages_navbar'%>		
+			
+			</div>
+      
+      <%= yield %>
+			<br>
+
+    </div>
+		<div id="footer" class="clear clearfix">
+
+		  <div class="copyright">
+		    <p>ESPEN SOMMER EIDE &copy;
+			<%=Time.now.strftime("%Y")%> | <%= link_to "Log in", login_path %></p>
+		  </div> <!-- END COPYRIGHT -->
+
+		</div> <!-- END FOOTER -->
+
+  </body>
 </html>

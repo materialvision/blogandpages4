@@ -1,0 +1,22 @@
+<div id="main_navbar">
+
+
+		<p id="cloud">
+			
+		<% @tagpages.each_with_index do |t,i|%>
+
+		<%if i & 1 == 1%>
+		<span class="odd">
+		<%= link_to t.title, page_path(t.id), :class => "tag#{t.importance}" %>
+		</span>
+		<%else%>
+		<span class="even">
+		<%= link_to t.title, page_path(t.id), :class => "tag#{t.importance}" %>
+		</span>
+		<%end%>
+		<%end%>
+		</p>
+
+
+
+</div>

@@ -1,0 +1,43 @@
+<% form_for @page do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+	<p>
+	  <%= f.label :importance %><br />
+	  <%= f.text_field :importance %>
+	</p>
+	<p>
+		<%= f.label :clouded %><br />
+	  <%= f.select(:clouded, [["Yes",true],["No",false]]) %>
+	</p>
+  <p>
+    <%= f.label :content %><br />
+    <%= f.wysihat_editor :content %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
+
+<br><br><br><br><br><br>
+Alternativ form:
+<% form_for @page do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+	<p>
+	  <%= f.label :importance %><br />
+	  <%= f.text_field :importance %>
+	</p>
+	<p>
+		<%= f.label :clouded %><br />
+	  <%= f.select(:clouded, [["Yes",true],["No",false]]) %>
+	</p>
+   <p>
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

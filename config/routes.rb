@@ -1,4 +1,29 @@
 Rails.application.routes.draw do
+  # map.resources :wysihat_files
+
+  resources :pages
+
+  #map.bio 'bio', :controller => 'pages', :action => 'show', :id=>26
+  #map.works 'works', :controller => 'pages', :action => 'show', :id=>49
+
+  get 'calculate_importance', to: 'pages#calculate_importance'
+
+  resources :posts
+
+  get 'tagged', to: 'posts#tagged'
+  get 'rss', to: 'posts#rss'
+
+  get 'signup', to:'users#new'
+  get 'logout', to:'sessions#destroy'
+  get 'login', to:'sessions#new'
+  resources :sessions
+
+  resources :users
+  root 'posts#index'
+  match ':controller/:action/:id', via: [:get, :post]
+  #map.connect ':controller/:action/:id'
+  #map.connect ':controller/:action/:id.:format'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
