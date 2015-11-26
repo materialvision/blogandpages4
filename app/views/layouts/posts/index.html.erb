@@ -1,0 +1,38 @@
+<div id="entries">
+
+
+  <% for post in @posts %>
+			<div class="dateheader"><h3 class="entrydate"><span><%= post.created_at.strftime("%d") %></span><%= post.created_at.strftime("%B%Y") %></h3></div>
+
+      <div id="post_title"><h4><%= link_to post.title, post %></h4></div>
+
+
+			<div id="post_content"><%= post.content %></div>
+
+			<div id="time_and_author">Tags:
+			<%post.tags.each do |t|%>
+			<%= link_to t, tagged_path(:tagg=>t.to_s)%>
+			<%end%>
+			</div>
+
+
+		<% if logged_in? %>
+
+	<div id="loggedin">
+			<%= link_to "Show", post %>
+			 |
+	      <%= link_to "Edit", edit_post_path(post) %> |
+				<%= link_to "Destroy", post, :confirm => 'Are you sure?', :method => :delete %>
+			</div>
+
+		<%end%>
+		<br>
+  <% end %>
+<br>
+
+	<div id="post_content"><br><br>
+	<%= will_paginate @posts %>
+	</div>
+</div>
+
+&nbsp;
