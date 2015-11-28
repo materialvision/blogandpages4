@@ -1,6 +1,6 @@
 
 <% form_for @post do |f| %>
-  <%= f.error_messages %>
+
   <p>
     <%= f.label :tag_list %><br />
     <%= f.text_field :tag_list %>
@@ -11,7 +11,7 @@
   </p>
   <p>
     <%= f.label :content %><br />
-    <%= f.wysihat_editor :content %>
+
   </p>
   <p>
     <%= f.label :author %><br />
@@ -24,7 +24,7 @@
 Alternativ form:
 
 <% form_for @post do |f| %>
-  <%= f.error_messages %>
+
   <p>
     <%= f.label :tag_list %><br />
     <%= f.text_field :tag_list %>

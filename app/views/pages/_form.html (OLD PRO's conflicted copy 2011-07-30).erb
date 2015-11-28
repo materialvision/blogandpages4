@@ -1,5 +1,5 @@
 <% form_for @page do |f| %>
-  <%= f.error_messages %>
+
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -14,7 +14,7 @@
 	</p>
   <p>
     <%= f.label :content %><br />
-    <%= f.wysihat_editor :content %>
+
   </p>
   <p><%= f.submit "Submit" %></p>
 <% end %>

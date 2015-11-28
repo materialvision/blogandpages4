@@ -1,23 +1,22 @@
 class SessionsController < ApplicationController
-  before_filter :tagcloud
   def new
   end
-  
+
   def create
-    user = User.authenticate(params[:login], params[:password])
-    if user
-      session[:user_id] = user.id
-      flash[:notice] = "Logged in successfully."
-      redirect_to_target_or_default(root_url)
+    @user = User.authenticate(params[:email], params[:password])
+    if @user
+      flash[:notice] = "You've been logged in."
+      session[:user_id] = @user.id
+      redirect_to "/"
     else
-      flash.now[:error] = "Invalid login or password."
-      render :action => 'new'
+      flash[:alert] = "There was a problem logging you in."
+      redirect_to log_in_path
     end
   end
-  
+
   def destroy
     session[:user_id] = nil
-    flash[:notice] = "You have been logged out."
-    redirect_to root_url
+    flash[:notice] = "You've been logged out successfully."
+    redirect_to "/"
   end
 end

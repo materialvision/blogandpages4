@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'acts-as-taggable-on', '~> 3.4'
 gem "paperclip", "~> 4.3"
 gem 'will_paginate', '~> 3.0.6'
+gem 'bcrypt-ruby', '~> 3.1.5', require: "bcrypt"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

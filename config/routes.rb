@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  # map.resources :wysihat_files
 
   resources :pages
 
   #map.bio 'bio', :controller => 'pages', :action => 'show', :id=>26
   #map.works 'works', :controller => 'pages', :action => 'show', :id=>49
+
+  get 'bio', to: 'pages#show', id:26
+  get 'works', to: 'pages#show', id:49
 
   get 'calculate_importance', to: 'pages#calculate_importance'
 
@@ -14,9 +16,14 @@ Rails.application.routes.draw do
   get 'rss', to: 'posts#rss'
 
   get 'signup', to:'users#new'
-  get 'logout', to:'sessions#destroy'
-  get 'login', to:'sessions#new'
-  resources :sessions
+  #get 'logout', to:'sessions#destroy'
+  #get 'login', to:'sessions#new'
+  #resources :sessions
+
+  get "/log-in" => "sessions#new"
+  post "/log-in" => "sessions#create"
+  get "/log-out" => "sessions#destroy", as: :log_out
+
 
   resources :users
   root 'posts#index'

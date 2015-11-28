@@ -4,19 +4,19 @@
 <div id="entries">
 
 			<div class="dateheader"><h3 class="entrydate"><span><%= @post.created_at.strftime("%d") %></span><%= @post.created_at.strftime("%B%Y") %></h3></div>
-    
-      <div id="post_title"><h4><%= link_to @post.title, @post %></h4></div>    
-		
-    
-			<div id="post_content"><%= @post.content %></div>
-		
-			<div id="time_and_author">Tags: 
+
+      <div id="post_title"><h4><%= link_to @post.title, @post %></h4></div>
+
+
+			<div id="post_content"><%=raw @post.content %></div>
+
+			<div id="time_and_author">Tags:
 			<%@post.tags.each do |t|%>
 			<%= link_to t, tagged_path(:tagg=>t.to_s)%>
 			<%end%>
 			</div>
-		
-		
+
+
 
 		<br>
 		<div id="post_content">
@@ -31,4 +31,3 @@
 
 </div>
 &nbsp;
-
