@@ -1,45 +1,11 @@
-
-<% form_for @post do |f| %>
-
-  <p>
-    <%= f.label :tag_list %><br />
-    <%= f.text_field :tag_list %>
-  </p>
-  <p>
+<p><%= form_for @post do |f| %>
+    <%= f.label :tag_list %>
+    <%= f.text_field :tag_list %><br>
+    <%= f.label :author %>
+    <%= f.text_field :author %><br>
     <%= f.label :title %>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :content %><br />
-
-  </p>
-  <p>
-    <%= f.label :author %><br />
-    <%= f.text_field :author %>
-  </p>
-  <p><%= f.submit "Submit" %></p>
-<% end %>
-
-<br><br><br><br><br><br>
-Alternativ form:
-
-<% form_for @post do |f| %>
-
-  <p>
-    <%= f.label :tag_list %><br />
-    <%= f.text_field :tag_list %>
-  </p>
-  <p>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </p>
-  <p>
-    <%= f.label :author %><br />
-    <%= f.text_field :author %>
-  </p>
-  <p><%= f.submit "Submit" %></p>
-<% end %>
+    <%= f.text_field :title %><br>
+    <%= f.label :content %>
+    <%= f.text_area :content, size: '50x10' %><br>
+    <%= f.submit "Submit" %>
+<% end %></p

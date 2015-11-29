@@ -1,26 +1,4 @@
-<% form_for @page do |f| %>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-	<p>
-	  <%= f.label :importance %><br />
-	  <%= f.text_field :importance %>
-	</p>
-	<p>
-		<%= f.label :clouded %><br />
-	  <%= f.select(:clouded, [["Yes",true],["No",false]]) %>
-	</p>
-  <p>
-    <%= f.label :content %><br />
-
-  </p>
-  <p><%= f.submit "Submit" %></p>
-<% end %>
-
-<br><br><br><br><br><br>
-Alternativ form:
-<% form_for @page do |f| %>
+<%= form_for @page do |f| %>
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -35,7 +13,7 @@ Alternativ form:
 	</p>
    <p>
     <%= f.label :content %><br />
-    <%= f.text_area :content %>
+    <%= f.text_area :content, size: '50x10'%>
   </p>
   <p><%= f.submit "Submit" %></p>
 <% end %>

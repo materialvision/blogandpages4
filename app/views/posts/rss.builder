@@ -8,8 +8,8 @@ xml.rss(:version=>"2.0"){
       @posts.each do |post|
         xml.item do
           xml.title(post.title)
-          xml.description(post.content)      
-          xml.author(post.author)               
+          xml.description(post.content)
+          xml.author(post.author)
           xml.pubDate(post.created_at.strftime("%a, %d %b %Y %H:%M:%S %z"))
           xml.link(post_url(:id=>post.id))
           xml.guid(post_url(:id=>post.id))

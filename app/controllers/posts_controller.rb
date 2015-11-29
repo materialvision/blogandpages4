@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   end
 
   def rss
-    @posts = Post.find(:all)
+    @posts = Post.all
   end
 
   def new
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params[:post])
+    @post = Post.new(post_params)
     if @post.save
       flash[:notice] = "Successfully created post."
       redirect_to calculate_importance_path
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if @post.update_attributes(params[:post])
+    if @post.update_attributes(post_params)
       flash[:notice] = "Successfully updated post."
       redirect_to @post
     else
@@ -53,5 +53,11 @@ class PostsController < ApplicationController
     @post.destroy
     flash[:notice] = "Successfully destroyed post."
     redirect_to posts_url
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :content, :author, :tag_list)
   end
 end
