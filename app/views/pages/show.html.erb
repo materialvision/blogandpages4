@@ -1,7 +1,6 @@
-<div id="entriespage">
-
+<div class="col-lg-12 col-md-12 col-sm-12">
+<div class="im-centered">
 <p>
-
 <div id="page_title"><h2><%=@page.title%></h2></div>
 <div id="page_content"><%=raw @page.content %></div>
 </p>
@@ -11,27 +10,21 @@
   <%= link_to "Destroy", @page, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", pages_path %>
 <%end%>
-
 </p>
-</div><div class="entriespadding">
-
 </div>
 
-<div id="entries">
-  <% for post in @posts %>
-			<div class="dateheader"><h3 class="entrydate"><span><%= post.created_at.strftime("%d") %></span><%= post.created_at.strftime("%B%Y") %></h3></div>
-
-      <div id="post_title"><h4><%= link_to post.title, post %></h4></div>
-
-
-			<div id="post_content"><%=raw post.content %></div>
-
-			<div id="time_and_author">Tags:
-			<%post.tags.each do |t|%>
-			<%= link_to t, tagged_path(:tagg=>t.to_s)%>
-			<%end%>
-			</div>
-
+<% for post in @posts %>
+<div class="im-centered">
+<h3 class="entrydate"><%= post.created_at.strftime("%d") %><%= post.created_at.strftime("%B%Y") %>
+<%= link_to post.title, post %></h3>
+<%=raw post.content %>
+</div><div class="im-centered">
+<div id="time_and_author">Tags:
+<%post.tags.each do |t|%>
+<%= link_to t, tagged_path(:tagg=>t.to_s)%>
+<%end%>
+</div></div>
+<div class="im-centered">
 
 		<% if logged_in? %>
 
@@ -44,11 +37,13 @@
 
 		<%end%>
 		<br>
-  <% end %>
+</div>
+
+<% end %>
 <br>
 
 
 
+</div></div>
 
-</div>
 &nbsp;

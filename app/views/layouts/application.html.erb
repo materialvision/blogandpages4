@@ -22,58 +22,104 @@
 		</script>
   </head>
   <body>
-    <div id="container">
 
-			<div id="content" class="clear">
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../" class="navbar-brand">Espen Sommer Eide</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="../">news</a>
+            </li>
+            <li>
+              <a href="../works">works</a>
+            </li>
+            <li>
+              <a href="../bio">bio</a>
+            </li>
+            <li>
+              <a href="../rss">rss</a>
+            </li>
 
-			<div id="thinheader" class="">
-			  <h1 class="logo"><a href="/" title="news"><span>news</span></a></h1>
+          </ul>
 
-			  <div id="session_nav">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="login">login <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="login">
 
-					<ul>
-			  <li><%= link_to "News", root_path %></li><li><span class="separator">|
-				</span><%= link_to "Works", "/works" %></li><li><span class="separator">|</span>
-				<%= link_to "Bio", "/bio" %></li><li><span class="separator">|</span>
-				</span><%= link_to "RSS", "/rss" %></li>
+                <li><%= link_to "Log in", log_in_path %></li>
+                <% if logged_in? %>
+                <li><%= link_to "Log out", log_out_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Pages", pages_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "New user", signup_path %></li>
+                <li><%= link_to "New page", new_page_path %></li>
+                <li><%= link_to "New Post", new_post_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Update_cloud", calculate_importance_path %></li>
+                <% end %>
+              </ul>
+            </li>
 
-						<% if logged_in? %>
-							<li><span class="separator">|</span><%= link_to "Pages", pages_path %><span class="separator">|</span>
-							<%= link_to "New user", signup_path %><span class="separator">|</span>
-							<%= link_to "New page", new_page_path %><span class="separator">|</span>
-							<%= link_to "New Post", new_post_path %><span class="separator">|</span>
-							<%= link_to "Update_cloud", calculate_importance_path %><span class="separator">|</span>
-			        <%= link_to "Log out", log_out_path %></li>
-			      <% end %>
+          </ul>
 
-			</ul>
-			  </div> <!-- END TOPNAV -->
+        </div>
+      </div>
+    </div>
 
-			</div> <!-- END HEADER -->
-			<div id="caption">by espen sommer eide</div>
+    <div class="container">
 
-			<div class="headerpadding">
+      <div class="page-header" id="banner">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+
+            <%= render :partial => 'layouts/pages_navbar'%>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <div class="headerpadding">
 		    <%- flash.each do |name, msg| -%>
 	        <%= content_tag :div, msg, :id => "flash_#{name}" %>
 	      <%- end -%>
 			</div>
 
-			<%= render :partial => 'layouts/pages_navbar'%>
+      <div class="bs-docs-section">
+        <div class="row">
 
+                <%= yield %>
+
+        </div>
+      </div>
+
+
+
+      <div id="copyright">
+		    <p>ESPEN SOMMER EIDE &copy;
+			<%=Time.now.strftime("%Y")%></p>
+		  </div> <!-- END COPYRIGHT -->
 			</div>
 
-      <%= yield %>
-			<br>
+
+
 
     </div>
-		<div id="footer" class="clear clearfix">
 
-		  <div class="copyright">
-		    <p>ESPEN SOMMER EIDE &copy;
-			<%=Time.now.strftime("%Y")%> | <%= link_to "Log in", log_in_path %></p>
-		  </div> <!-- END COPYRIGHT -->
 
-		</div> <!-- END FOOTER -->
+
 
   </body>
 </html>

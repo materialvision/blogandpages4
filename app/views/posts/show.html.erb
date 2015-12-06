@@ -1,25 +1,14 @@
-
-
-
-<div id="entries">
-
-			<div class="dateheader"><h3 class="entrydate"><span><%= @post.created_at.strftime("%d") %></span><%= @post.created_at.strftime("%B%Y") %></h3></div>
-
-      <div id="post_title"><h4><%= link_to @post.title, @post %></h4></div>
-
-
-			<div id="post_content"><%=raw @post.content %></div>
-
-			<div id="time_and_author">Tags:
+<div class="col-lg-12 col-md-12 col-sm-12">
+<div class="im-centered">
+<h3 class="entrydate"><%= @post.created_at.strftime("%d") %><%= @post.created_at.strftime("%B%Y") %>
+		<%= link_to @post.title, @post %></h3>
+			<%=raw @post.content %>
+</div><div class="im-centered">
+			Tags:
 			<%@post.tags.each do |t|%>
 			<%= link_to t, tagged_path(:tagg=>t.to_s)%>
-			<%end%>
-			</div>
-
-
-
-		<br>
-		<div id="post_content">
+			<%end%><br>
+</div><div class="im-centered">
 			<p>
 			<% if logged_in? %>
 			  <%= link_to "Edit", edit_post_path(@post) %> |
@@ -27,7 +16,5 @@
 			<%end%>
 			  <%= link_to "Back to blog", posts_path %>
 			</p>
-		</div>
-
 </div>
 &nbsp;

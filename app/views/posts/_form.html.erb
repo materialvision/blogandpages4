@@ -6,6 +6,6 @@
     <%= f.label :title %>
     <%= f.text_field :title %><br>
     <%= f.label :content %>
-    <%= f.text_area :content, size: '50x10' %><br>
+    <%= f.bootsy_area :content, size: "100x30", editor_options: { html: true} %><br>
     <%= f.submit "Submit" %>
 <% end %></p

@@ -24,5 +24,6 @@ module Blogandpages4
     config.autoload_paths << "#{Rails.root}/lib"
     config.filter_parameters += [:password, :password_confirmation]
     config.active_record.raise_in_transactional_callbacks = true
+    config.action_dispatch.default_headers = {'X-XSS-Protection' => '0;'}
   end
 end

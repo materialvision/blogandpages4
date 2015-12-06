@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   resources :pages
 
   #map.bio 'bio', :controller => 'pages', :action => 'show', :id=>26
