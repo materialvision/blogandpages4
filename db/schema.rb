@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129165753) do
+ActiveRecord::Schema.define(version: 20151206182152) do
 
   create_table "bootsy_image_galleries", force: :cascade do |t|
     t.integer  "bootsy_resource_id"
@@ -37,11 +37,12 @@ ActiveRecord::Schema.define(version: 20151129165753) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string   "title",      limit: 255
+    t.string   "title",       limit: 255
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "author",     limit: 255
+    t.string   "author",      limit: 255
+    t.text     "contentlong"
   end
 
   create_table "taggings", force: :cascade do |t|

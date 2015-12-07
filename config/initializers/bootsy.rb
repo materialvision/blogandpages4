@@ -22,7 +22,7 @@ Bootsy.setup do |config|
   # SMALL IMAGES
   #
   # Width limit for small images
-   config.small_image[:width] = 320
+   config.small_image[:width] = 700
   #
   # Height limit for small images
   # config.small_image[:height] = 160
@@ -31,7 +31,7 @@ Bootsy.setup do |config|
   # MEDIUM IMAGES
   #
   # Width limit for medium images
-   config.medium_image[:width] = 640
+   config.medium_image[:width] = 1400
   #
   # Height limit for medium images
   # config.medium_image[:height] = 360
@@ -40,7 +40,7 @@ Bootsy.setup do |config|
   # LARGE IMAGES
   #
   # Width limit for large images
-   config.large_image[:width] = 1280
+   config.large_image[:width] = 2800
   #
   # Height limit for large images
   # config.large_image[:height] = 760
