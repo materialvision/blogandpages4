@@ -52,5 +52,5 @@ group :development, :test do
   gem 'spring'
 end
 group :production do
-  gem 'unicorn' '~> 4.9.0'
+  gem 'unicorn', '~> 4.9.0'
 end
