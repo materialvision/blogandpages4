@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'acts-as-taggable-on', '~> 3.4'
 gem "paperclip", "~> 4.3"
 gem 'will_paginate', '~> 3.0.6'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'bcrypt-ruby', '~> 3.1.5', require: "bcrypt"
 
 gem 'bootstrap-sass', '~> 3.2.0'

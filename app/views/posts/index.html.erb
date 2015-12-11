@@ -1,9 +1,17 @@
-<% for post in @posts %>
+<% @posts.each_with_index do |post, index| %>
+<% if index==5 %>
+<div class="col-lg-6 col-md-6 col-sm-9">
+  <div class="bs-component">
+    <h3>Tweets</h3>
+    <a class="twitter-timeline"  width="auto" href="https://twitter.com/esomm" data-widget-id="675077698843254784" data-chrome="nofooter noborders noheader">Tweets by @esomm</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  </div>
+</div>
+<%end%>
 <div class="col-lg-6 col-md-6 col-sm-9">
   <div class="bs-component">
     <h3><%= post.created_at.strftime("%d") %><%= post.created_at.strftime("%B%Y") %>
         <%= link_to post.title, post %></h3>
-
         <%=raw post.content %>
 
 		<div id="time_and_author">Tags:

@@ -1,16 +1,16 @@
-  <p><%= form_for @page do |f| %>
+<p><%= form_for @page do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, size:40 %><br>
+	  <%= f.label :importance %>
+	  <%= f.text_field :importance, size: 5 %><br>
+		<%= f.label :clouded %>
+	  <%= f.select(:clouded, [["Yes",true],["No",false]]) %><br>
+    <%= f.label :content %>
+    <%= f.bootsy_area :content, size: "100x30", editor_options: { html: true} %><br>
+		<%= f.submit "Submit" %>
+<% end %></p>
 
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
 
-	  <%= f.label :importance %><br />
-	  <%= f.text_field :importance %>
 
-		<%= f.label :clouded %><br />
-	  <%= f.select(:clouded, [["Yes",true],["No",false]]) %>
-
-    <%= f.label :content %><br />
-    <%= f.bootsy_area :content, size: "100x30" %>
-
-<%= f.submit "Submit" %>
-<% end %>  </p>
+<p>for VIMEO and youtube embed, put ifram in div with class = myIframe
+</p>
