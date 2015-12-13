@@ -6989,3 +6989,11 @@ iframe {
 #cloud a.tag1 { color:#A8A8A8  }
 #cloud a.tag0 { color:#A0A0A0  }
 #cloud a:hover {color: #000000;}
+
+.navbar {
+  background-image: url("manandsea.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
