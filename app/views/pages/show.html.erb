@@ -18,6 +18,7 @@
 <h3 class="entrydate"><%= post.created_at.strftime("%d") %><%= post.created_at.strftime("%B%Y") %>
 <%= link_to post.title, post %></h3>
 <%=raw post.content %>
+<%=raw post.contentlong %>
 </div><div class="im-centered">
 <div id="time_and_author">Tags:
 <%post.tags.each do |t|%>
