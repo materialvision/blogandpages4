@@ -13,7 +13,7 @@
     <h3><%= post.created_at.strftime("%d") %><%= post.created_at.strftime("%B%Y") %>
         <%= link_to post.title, post %></h3>
         <%=raw post.content %>
-        <% if post.contentlong != nil %>
+        <% if post.contentlong.blank? == false %>
         <p><%= link_to 'read more – link to full post', post %></p>
         <%end%>
 		<div id="time_and_author">Tags:
